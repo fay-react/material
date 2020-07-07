@@ -1,0 +1,67 @@
+{
+  "name": "@fay-react/material",
+  "version": "0.0.1-alpha.4",
+  "description": "fay material",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development PORT=8000 node node_modules/@fay-next/config/devServer/config.js",
+    "build": "next build",
+    "pro": "npm run clear && next build && next start",
+    "export": "npm run clear && next build && next export",
+    "dist": "rm -rf ../dist/bg/* && cp -r ./out/* ../dist/bg/",
+    "clear": "rm -rf .next out",
+    "pub:clear": "rm -rf pub",
+    "pub:tsc": "cd components && npx tsc && cd ..",
+    "pub:babel": "export NODE_ENV='production' && npx babel pub --out-dir pub --copy-files",
+    "pub:pre": "npm run pub:clear && npm run pub:tsc && npm run pub:babel && cp package.json pub && cp README.md pub",
+    "pub": "npm run pub:pre && cd pub && npm publish && cd .. && npm run pub:clear",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 10"
+  ],
+  "keywords": [
+    "fay",
+    "fay-react-material",
+    "frontend"
+  ],
+  "contributors": [
+    "love-fay"
+  ],
+  "bugs": {
+    "url": "https://github.com/fay-react/material/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fay-react/material"
+  },
+  "main": "pub/",
+  "module": "*",
+  "files": [
+    "*"
+  ],
+  "email": "869770665@qq.com",
+  "author": "fay",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.2"
+  },
+  "dependencies": {
+    "@babel/cli": "7.5.5",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@types/draft-js": "^0.10.40",
+    "@types/react-swipeable-views": "^0.13.0",
+    "draft-js": "^0.11.5",
+    "react-number-format": "^4.4.1",
+    "react-swipeable-views": "^0.13.9"
+  },
+  "devDependencies": {
+    "@fay-next/config": "0.0.1-alpha.11",
+    "@fay-react/lib": "0.0.1-alpha.33",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

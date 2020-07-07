@@ -1,0 +1,111 @@
+@import "../../style/index";
+
+.fay-draft{
+  width: 100%;
+  height: 100%;
+  border: 1px solid #999999;
+  border-radius: 10px;
+  &-editor{
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    color: #000000;
+    line-height: 30px;
+    //.DraftEditor-root{
+    //  width: 100%;
+    //  height: 100%;
+    //  border: 1px solid @primary-color;
+    //  .DraftEditor-editorContainer{
+    //    width: 100%;
+    //    height: 100%;
+    //    .public-DraftEditor-content{
+    //      width: 100%;
+    //      height: 100%;
+    //    }
+    //  }
+    //}
+    // &-blockquote{
+    //   display:block;
+    //   border-left: 5px solid #d2d2d2;
+    //   color: #666;
+    //   margin: 0 0;
+    //   padding: 5px 20px;
+    //   font-size: 15px;
+    //   font-style: italic;
+    //   background-color: #eff9ff;
+    // }
+
+    // &-text-align{
+    //   &-center{
+    //     text-align: center;
+    //   }
+    //   &-right{
+    //     text-align: right;
+    //   }
+    //   &-left{
+    //     text-align: left;
+    //   }
+    // }
+
+    // &-lineHeight1em{
+    //   line-height: 1em;
+    // }
+    // &-lineHeight1d5em{
+    //   line-height: 1.5em;
+    // }
+    // &-lineHeight2em{
+    //   line-height: 2em;
+    // }
+    // &-lineHeight2d5em{
+    //   line-height: 2.5em;
+    // }
+    // &-lineHeight3em{
+    //   line-height: 3em;
+    // }
+    // &-lineHeight3d5em{
+    //   line-height: 3.5em;
+    // }
+    // &-lineHeight4em{
+    //   line-height: 4em;
+    // }
+  }
+
+  &-operation{
+    padding: 10px 0;
+    border-bottom: 1px solid #999999;
+    .rjicon{
+      color: #000000;
+    }
+  }
+
+  &-btn{
+    cursor: pointer;
+    padding: 5px 15px 5px 15px;
+    border: none;
+    background-color: #FFFFFF;
+    &:hover{
+      //padding: 4px;
+      //color: @primary-color;
+      //border: @border-width-base @border-style-base @primary-color;
+      //box-shadow: @box-shadow-base;
+      border-radius: 2px;
+      background-color: #dddddd;
+    }
+    &-checked{
+      color: @primary-color;
+      .rjicon{
+        color: @primary-color;
+        font-weight: bold;
+      }
+    }
+    &-disabled{
+      .rjicon{
+        color: #dddddd;
+      }
+      &:hover{
+        background-color: transparent;
+      }
+    }
+  }
+}
+

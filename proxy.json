@@ -1,0 +1,9 @@
+[
+  {
+    "path": "oss",
+    "target": "http://121.36.218.101:3001/ossUpload",
+    "changeOrigin": false,
+    "secure": false,
+    "cookiePathRewrite": "/"
+  }
+]

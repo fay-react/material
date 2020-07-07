@@ -1,0 +1,466 @@
+@import "../../../style/index";
+
+.fay-draft-color{
+  &-btn{
+    cursor: pointer;
+    padding: 0 8px;
+    margin: 1px;
+    border: none;
+    width: 5px;
+    height: 10px;
+  }
+  &:hover{
+    border: 1px solid #dddddd;
+    box-shadow: @box-shadow-base;
+    margin: 0;
+  }
+  &-blue{
+    &-1{
+      background-color: @blue-1;
+    }
+    &-2{
+      background-color: @blue-2;
+    }
+    &-3{
+      background-color: @blue-3;
+    }
+    &-4{
+      background-color: @blue-4;
+    }
+    &-5{
+      background-color: @blue-5;
+    }
+    &-6{
+      background-color: @blue-6;
+    }
+    &-7{
+      background-color: @blue-7;
+    }
+    &-8{
+      background-color: @blue-8;
+    }
+    &-9{
+      background-color: @blue-9;
+    }
+    &-10{
+      background-color: @blue-10;
+    }
+  }
+  &-purple{
+    &-1{
+      background-color: @purple-1;
+    }
+    &-2{
+      background-color: @purple-2;
+    }
+    &-3{
+      background-color: @purple-3;
+    }
+    &-4{
+      background-color: @purple-4;
+    }
+    &-5{
+      background-color: @purple-5;
+    }
+    &-6{
+      background-color: @purple-6;
+    }
+    &-7{
+      background-color: @purple-7;
+    }
+    &-8{
+      background-color: @purple-8;
+    }
+    &-9{
+      background-color: @purple-9;
+    }
+    &-10{
+      background-color: @purple-10;
+    }
+  }
+  &-cyan{
+    &-1{
+      background-color: @cyan-1;
+    }
+    &-2{
+      background-color: @cyan-2;
+    }
+    &-3{
+      background-color: @cyan-3;
+    }
+    &-4{
+      background-color: @cyan-4;
+    }
+    &-5{
+      background-color: @cyan-5;
+    }
+    &-6{
+      background-color: @cyan-6;
+    }
+    &-7{
+      background-color: @cyan-7;
+    }
+    &-8{
+      background-color: @cyan-8;
+    }
+    &-9{
+      background-color: @cyan-9;
+    }
+    &-10{
+      background-color: @cyan-10;
+    }
+  }
+  &-green{
+    &-1{
+      background-color: @green-1;
+    }
+    &-2{
+      background-color: @green-2;
+    }
+    &-3{
+      background-color: @green-3;
+    }
+    &-4{
+      background-color: @green-4;
+    }
+    &-5{
+      background-color: @green-5;
+    }
+    &-6{
+      background-color: @green-6;
+    }
+    &-7{
+      background-color: @green-7;
+    }
+    &-8{
+      background-color: @green-8;
+    }
+    &-9{
+      background-color: @green-9;
+    }
+    &-10{
+      background-color: @green-10;
+    }
+  }
+  &-magenta{
+    &-1{
+      background-color: @magenta-1;
+    }
+    &-2{
+      background-color: @magenta-2;
+    }
+    &-3{
+      background-color: @magenta-3;
+    }
+    &-4{
+      background-color: @magenta-4;
+    }
+    &-5{
+      background-color: @magenta-5;
+    }
+    &-6{
+      background-color: @magenta-6;
+    }
+    &-7{
+      background-color: @magenta-7;
+    }
+    &-8{
+      background-color: @magenta-8;
+    }
+    &-9{
+      background-color: @magenta-9;
+    }
+    &-10{
+      background-color: @magenta-10;
+    }
+  }
+  &-pink{
+    &-1{
+      background-color: @pink-1;
+    }
+    &-2{
+      background-color: @pink-2;
+    }
+    &-3{
+      background-color: @pink-3;
+    }
+    &-4{
+      background-color: @pink-4;
+    }
+    &-5{
+      background-color: @pink-5;
+    }
+    &-6{
+      background-color: @pink-6;
+    }
+    &-7{
+      background-color: @pink-7;
+    }
+    &-8{
+      background-color: @pink-8;
+    }
+    &-9{
+      background-color: @pink-9;
+    }
+    &-10{
+      background-color: @pink-10;
+    }
+  }
+  &-red{
+    &-1{
+      background-color: @red-1;
+    }
+    &-2{
+      background-color: @red-2;
+    }
+    &-3{
+      background-color: @red-3;
+    }
+    &-4{
+      background-color: @red-4;
+    }
+    &-5{
+      background-color: @red-5;
+    }
+    &-6{
+      background-color: @red-6;
+    }
+    &-7{
+      background-color: @red-7;
+    }
+    &-8{
+      background-color: @red-8;
+    }
+    &-9{
+      background-color: @red-9;
+    }
+    &-10{
+      background-color: @red-10;
+    }
+  }
+  &-orange{
+    &-1{
+      background-color: @orange-1;
+    }
+    &-2{
+      background-color: @orange-2;
+    }
+    &-3{
+      background-color: @orange-3;
+    }
+    &-4{
+      background-color: @orange-4;
+    }
+    &-5{
+      background-color: @orange-5;
+    }
+    &-6{
+      background-color: @orange-6;
+    }
+    &-7{
+      background-color: @orange-7;
+    }
+    &-8{
+      background-color: @orange-8;
+    }
+    &-9{
+      background-color: @orange-9;
+    }
+    &-10{
+      background-color: @orange-10;
+    }
+  }
+  &-yellow{
+    &-1{
+      background-color: @yellow-1;
+    }
+    &-2{
+      background-color: @yellow-2;
+    }
+    &-3{
+      background-color: @yellow-3;
+    }
+    &-4{
+      background-color: @yellow-4;
+    }
+    &-5{
+      background-color: @yellow-5;
+    }
+    &-6{
+      background-color: @yellow-6;
+    }
+    &-7{
+      background-color: @yellow-7;
+    }
+    &-8{
+      background-color: @yellow-8;
+    }
+    &-9{
+      background-color: @yellow-9;
+    }
+    &-10{
+      background-color: @yellow-10;
+    }
+  }
+  &-volcano{
+    &-1{
+      background-color: @volcano-1;
+    }
+    &-2{
+      background-color: @volcano-2;
+    }
+    &-3{
+      background-color: @volcano-3;
+    }
+    &-4{
+      background-color: @volcano-4;
+    }
+    &-5{
+      background-color: @volcano-5;
+    }
+    &-6{
+      background-color: @volcano-6;
+    }
+    &-7{
+      background-color: @volcano-7;
+    }
+    &-8{
+      background-color: @volcano-8;
+    }
+    &-9{
+      background-color: @volcano-9;
+    }
+    &-10{
+      background-color: @volcano-10;
+    }
+  }
+  &-geekblue{
+    &-1{
+      background-color: @geekblue-1;
+    }
+    &-2{
+      background-color: @geekblue-2;
+    }
+    &-3{
+      background-color: @geekblue-3;
+    }
+    &-4{
+      background-color: @geekblue-4;
+    }
+    &-5{
+      background-color: @geekblue-5;
+    }
+    &-6{
+      background-color: @geekblue-6;
+    }
+    &-7{
+      background-color: @geekblue-7;
+    }
+    &-8{
+      background-color: @geekblue-8;
+    }
+    &-9{
+      background-color: @geekblue-9;
+    }
+    &-10{
+      background-color: @geekblue-10;
+    }
+  }
+  &-lime{
+    &-1{
+      background-color: @lime-1;
+    }
+    &-2{
+      background-color: @lime-2;
+    }
+    &-3{
+      background-color: @lime-3;
+    }
+    &-4{
+      background-color: @lime-4;
+    }
+    &-5{
+      background-color: @lime-5;
+    }
+    &-6{
+      background-color: @lime-6;
+    }
+    &-7{
+      background-color: @lime-7;
+    }
+    &-8{
+      background-color: @lime-8;
+    }
+    &-9{
+      background-color: @lime-9;
+    }
+    &-10{
+      background-color: @lime-10;
+    }
+  }
+  &-gold{
+    &-1{
+      background-color: @gold-1;
+    }
+    &-2{
+      background-color: @gold-2;
+    }
+    &-3{
+      background-color: @gold-3;
+    }
+    &-4{
+      background-color: @gold-4;
+    }
+    &-5{
+      background-color: @gold-5;
+    }
+    &-6{
+      background-color: @gold-6;
+    }
+    &-7{
+      background-color: @gold-7;
+    }
+    &-8{
+      background-color: @gold-8;
+    }
+    &-9{
+      background-color: @gold-9;
+    }
+    &-10{
+      background-color: @gold-10;
+    }
+  }
+  &-black{
+    &-1{
+      background-color: #ffffff;
+    }
+    &-2{
+      background-color: #cccccc;
+    }
+    &-3{
+      background-color: #999999;
+    }
+    &-4{
+      background-color: #888888;
+    }
+    &-5{
+      background-color: #777777;
+    }
+    &-6{
+      background-color: #666666;
+    }
+    &-7{
+      background-color: #555555;
+    }
+    &-8{
+      background-color: #444444;
+    }
+    &-9{
+      background-color: #333333;
+    }
+    &-10{
+      background-color: #000000;
+    }
+  }
+}
+
