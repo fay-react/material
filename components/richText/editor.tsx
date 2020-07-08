@@ -85,10 +85,10 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-export default ({onSave, placeholder, value, onChange}: any) => {
+export default ({onSave, placeholder, defaultValue, onChange}: any) => {
   const classes = useStyles();
   // const initData = EditorState.createWithContent(emptyContentState);
-  const [editorState, setEditorState] = React.useState(EditorState.createWithContent(emptyContentState));
+  const [editorState, setEditorState] = React.useState(EditorState.createWithContent(defaultValue ? convertFromRaw(JSON.parse(defaultValue)) : emptyContentState));
   // const [height, setHeight] = React.useState<string|number>(0);
   const editorRef = React.createRef<any>();
   const operateRef = React.createRef<any>();
@@ -107,27 +107,14 @@ export default ({onSave, placeholder, value, onChange}: any) => {
   //   return "not-handled";
   // }
 
-  React.useEffect(() => {
-    if(value){
-      setEditorState(EditorState.createWithContent(convertFromRaw(JSON.parse(value))));
-    }
-  }, [value]);
-
   const handleChange = (_editorState: EditorState) => {
-    console.log(1232131234312);
-    // handleFocus();
-    onChange ? handleChangeToProps(_editorState) : setEditorState(_editorState);
-    // handleFocus();
-  };
-
-  const handleChangeToProps = (_editorState: EditorState) => {
+    setEditorState(_editorState);
     const raw = convertToRaw(_editorState.getCurrentContent());
     const value = JSON.stringify(raw);
-    onChange(value);
+    onChange && onChange(value);
   };
 
   React.useEffect(() => {
-    // console.log(123213);
     handleFocus();
     console.log(editorState);
   }, [JSON.stringify(convertToRaw(editorState.getCurrentContent()))]);

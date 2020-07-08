@@ -1,12 +1,15 @@
 {
   "extends": "@fay-next/config/typescript/tsconfig.json",
   "compilerOptions": {
-    "outDir": "./pub",                        // 指定输出目录
-    "rootDir": ".",                       // 用来控制输出目录结构 --outDir.
+    "outDir": "./pub", // 指定输出目录
+    "rootDir": ".", // 用来控制输出目录结构 --outDir.
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "jsx": "preserve"
   },
   "exclude": [
     "node_modules"

@@ -5,14 +5,6 @@ import Immutable from 'immutable';
 import {DefaultDraftBlockRenderMap} from 'draft-js';
 
 const blockRenderMap = Immutable.Map({
-    'mySub': {
-        element: 'sub',
-        wrapper: <sub/>
-    },
-    'sup': {
-        element: 'sup',
-        wrapper: <sup/>
-    },
     'img': {
       element: 'img',
       editable: false,
