@@ -25,6 +25,10 @@ const VideoComponent = (props: any) => {
   return <video controls {...props} />;
 };
 
+const HtmlComponent = (props: any) => {
+  return <div dangerouslySetInnerHTML={{__html: props.src}}/>;
+};
+
 export default (props: any) => {
   console.log(props);
   console.log(props.blockProps);
@@ -41,7 +45,9 @@ export default (props: any) => {
     audio: AudioComponent,
     image: ImageComponent,
     video: VideoComponent,
+    html: HtmlComponent,
   }
+  console.log(type);
   const Com = Component[type];
   return (
     <div style={{...styles.root, ...style}}>

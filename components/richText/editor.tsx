@@ -6,7 +6,11 @@ import React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
-import  {Editor, EditorState, convertFromRaw, convertToRaw} from 'draft-js';
+import {
+  Editor, EditorState,
+  convertFromRaw, convertToRaw,
+  SelectionState, Modifier
+} from 'draft-js';
 import {Buttons as InlineStyleButtons, customStyleMap as customStyleMap} from './inlineStyle';
 import {Button as FontSizeButton, customStyleMap as fontSizeCustomStyleMap} from './inlineStyle/fontSize';
 import {Button as ColorButton, customStyleMap as colorCustomStyleMap} from './inlineStyle/color';
@@ -16,6 +20,7 @@ import {Buttons as BlockRenderButtons, blockRendererFn} from './blockRender';
 import {Button as SaveButton} from './save';
 import {Buttons as StorageButtons} from './storage';
 import extendedBlockRenderMap from './blockRenderMap';
+import {insertImages} from './utils/file';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -98,7 +103,9 @@ export default ({onSave, placeholder, defaultValue, onChange}: any) => {
   }
   
   // const handleKeyCommand = (command: DraftEditorCommand, editorState: EditorState) => {
+  //   console.log(editorState, command);
   //   const newState = RichUtils.handleKeyCommand(editorState, command);
+  //   console.log(newState);
   //   if (newState) {
   //     // if(JSON)
   //     handleChange(newState);
@@ -106,6 +113,42 @@ export default ({onSave, placeholder, defaultValue, onChange}: any) => {
   //   }
   //   return "not-handled";
   // }
+
+  const handlePastedText = (text: string) => {
+    if(text){
+      const currentContent = editorState.getCurrentContent();
+      const currentSelection = editorState.getSelection();
+      const newContent = Modifier.replaceText(
+        currentContent,
+        currentSelection,
+        text
+      );
+      const newEditorState = EditorState.push(editorState, newContent, 'insert-characters');
+      handleChange(EditorState.forceSelection(newEditorState, newContent.getSelectionAfter()));
+      return "handled";
+    }
+    return "not-handled";
+  }
+
+  const handlePastedFiles = (files: Array<Blob>) => {
+    console.log(files);
+    console.log(files.length);
+    if(files){
+      insertImages(editorState, files).then(res => {
+        if(res.success){
+          handleChange(res.editorState!);
+        }else{
+          alert(res.msg);
+        }
+      })
+      return "handled";
+    }
+    return "not-handled";
+  }
+
+  const handleDroppedFiles = (_selection: SelectionState, files: Array<Blob>) => {
+    return handlePastedFiles(files);
+  }
 
   const handleChange = (_editorState: EditorState) => {
     setEditorState(_editorState);
@@ -118,21 +161,6 @@ export default ({onSave, placeholder, defaultValue, onChange}: any) => {
     handleFocus();
     console.log(editorState);
   }, [JSON.stringify(convertToRaw(editorState.getCurrentContent()))]);
-
-  // React.useEffect(() => {
-  //   console.log(operateRef);
-  //   const interval = setInterval(() => {
-  //     console.log(operateRef);
-  //     // const operateHeight = operateRef.current.offsetHeight;
-  //     // const nextHeight = 'calc(100% - '+parseFloat(operateHeight)+'px)';
-  //     // if(nextHeight !== height){
-  //     //     setHeight(nextHeight);
-  //     // }
-  //   }, 300);
-  //   return () => {
-  //     clearInterval(interval);
-  //   }
-  // }, []);
 
   return (
     <div className={classes.root}>
@@ -185,6 +213,9 @@ export default ({onSave, placeholder, defaultValue, onChange}: any) => {
                 blockRenderMap={extendedBlockRenderMap}
                 blockRendererFn={blockRendererFn}
                 // handleKeyCommand={handleKeyCommand}
+                handlePastedText={handlePastedText}
+                handlePastedFiles={handlePastedFiles}
+                handleDroppedFiles={handleDroppedFiles}
                 onChange={handleChange}
                 ref={editorRef}/>
       </div>
