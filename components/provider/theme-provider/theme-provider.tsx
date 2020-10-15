@@ -1,7 +1,7 @@
 /**
  * Create by fay on 4/22/20 10:27 下午
  */
-import {blue} from '@material-ui/core/colors';
+import {blue, red} from '../../colors';
 import {createMuiTheme} from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,11 +10,12 @@ import React from 'react';
 const muiTheme = createMuiTheme({
   palette: {
     primary: {
-      main: '#263BE0',
-      light: blue[50],
+      main: blue[900],
+      light: blue[100],
     },
     secondary: {
-      main: '#D70D26'
+      main: red[700],
+      light: red[100],
     },
     common: {
       black: '#131313'
@@ -47,7 +48,19 @@ const muiTheme = createMuiTheme({
     MuiButton: {
       root: {
         textTransform: "inherit",
-        borderRadius: 24
+        padding: '8px 24px'
+      },
+      outlined: {
+        padding: '8px 24px',
+      },
+      text: {
+        padding: '8px 24px'
+      },
+    },
+    MuiIconButton: {
+      root: {
+        borderRadius: '4px',
+        padding: '4px'
       }
     }
   }

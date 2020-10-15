@@ -8,7 +8,7 @@ import {Editor, Text} from '../../../components/richText';
 //   },
 // }));
 
-export default () => {
+export default function Rtx() {
   // const classes = useStyles();
   const [data, setData] = React.useState<string|null>(null);
 
